@@ -7,8 +7,22 @@ interface iBodyLogin{
     password: string
 }
 
+interface iUser{
+  name?:string,
+  email?: string,
+  phoneNumber?: string,
+  birthDate?: string
+}
+
+interface iLoginSucess {
+  isLogged: boolean,
+  message: string
+  token?:string,
+  userInfos?: iUser
+}
+
 class Login {
-  public async run({ username, password }:iBodyLogin):Promise<string> {
+  public async run({ username, password }:iBodyLogin):Promise<string | iLoginSucess> {
     const checkToken = new CheckToken();
 
     const authenticationDetails = new AuthenticationDetails({
@@ -23,29 +37,68 @@ class Login {
 
     const cognitoUser = new CognitoUser(userData);
 
-    const prom: Promise<string> = new Promise((resolve, reject) => {
+    const prom: Promise<iLoginSucess> = new Promise((resolve) => {
       cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess(result) {
-          console.log('Enviado para validação');
-          checkToken.run(result.getAccessToken().getJwtToken());
-          resolve(`Login efetuado com sucesso! Token: ${result.getAccessToken().getJwtToken()}`);
+          resolve({
+            isLogged: true,
+            message: 'Loggin ok',
+            token: result.getAccessToken().getJwtToken(),
+          });
         },
         onFailure(err) {
-          console.log('testeErradi');
-          reject(err.message);
+          resolve({
+            isLogged: false,
+            message: err.message,
+          });
         },
       });
     });
 
-    await prom;
-    return prom;
+    const loginCheck = await prom;
+    if (loginCheck.isLogged) {
+      const checkTokenReturn: any = await checkToken.run(loginCheck.token as string);
+
+      if (checkTokenReturn.length > 0) {
+        let name;
+        let birthDate;
+        let email;
+        let phoneNumber;
+        checkTokenReturn.forEach((element: any) => {
+          switch (element.Name) {
+            case 'name':
+              name = element.Value;
+              break;
+
+            case 'birthdate':
+              birthDate = element.Value;
+              break;
+
+            case 'email':
+              email = element.Value;
+              break;
+
+            case 'phone_number':
+              phoneNumber = element.Value;
+              break;
+
+            default:
+          }
+        });
+
+        const userSearched: iUser = {
+          name,
+          birthDate,
+          email,
+          phoneNumber,
+        };
+
+        loginCheck.userInfos = userSearched;
+      }
+    }
+
+    return loginCheck;
   }
 }
 
 export default Login;
-
-/**
- *  console.log(`access token + ${result.getAccessToken().getJwtToken()}`);
-    console.log(`id token + ${result.getIdToken().getJwtToken()}`);
-    console.log(`refresh token + ${result.getRefreshToken().getToken()}`);
- */

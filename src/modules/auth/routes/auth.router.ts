@@ -23,7 +23,7 @@ authRouter.post('/confirm', async (req, res) => {
 authRouter.post('/login', async (req, res) => {
   const login = new Login();
   const retorno = await login.run(req.body);
-  return res.json({ message: retorno });
+  return res.json({ access: retorno });
 });
 
 authRouter.post('/update', async (req, res) => {
