@@ -1,0 +1,88 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Project Documentation",
+    "description": "This is documentation to yout project",
+    "version": "1.0.0",
+    "contact": {
+      "email": "rafael.cepifanio@gmail.com"
+    }
+  },
+  "paths": {
+    "/status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "sumary": "Get status of API",
+        "description": "Get the status of api to check if is online",
+        "responses": {
+          "200": {
+            "description": "Aplicação online"
+          },
+          "500": {
+            "description": "Erro Interno"
+          }
+        }
+      }
+    },
+    "/sample": {
+      "post": {
+        "tags": [
+          "Sample"
+        ],
+        "sumary": "Sample of documentation",
+        "description": "This is a sample to config to documentation a request",
+        "parameters": [
+          {
+            "name": "sampleQueryParam",
+            "in": "path",
+            "description": "parameter description",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sampleHeaderParam",
+            "in": "header",
+            "description": "parameter description",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "objectOne": {
+                    "type": "string"
+                  },
+                  "objectTwo": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "objectOne": "This is objectOne",
+                  "objectTwo": "This is objectTwo"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request OK!"
+          },
+          "500": {
+            "description": "Bad request"
+          }
+        }
+      }
+    }
+  }
+}
