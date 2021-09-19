@@ -4,5 +4,5 @@ module.exports = {
   coverageProvider: 'v8',
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testMatch: ['**/__tests__/**/*.spec.ts'],
+  testMatch: ['**/**/*.spec.ts'],
 };
