@@ -1,4 +1,4 @@
-import {NextFunction, Request, Response} from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { AppError } from '@/shared/errors/AppError';
 
 const errors = (

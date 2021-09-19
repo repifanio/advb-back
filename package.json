@@ -11,7 +11,8 @@
     "start": "node dist/lib/shared/http/server.js",
     "postbuild": "tsc -p tsconfig.build.json",
     "dev": "ts-node-dev --ignore-watch node_modules -r tsconfig-paths/register src/shared/http/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js --config ./src/shared/config/ormconfig.ts"
   },
   "devDependencies": {
     "@babel/cli": "7.12.1",
@@ -47,8 +48,11 @@
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.5",
     "jwt-decode": "^3.1.2",
+    "mysql": "npm:mysql2@^2.1.0",
     "node-fetch": "^3.0.0",
+    "reflect-metadata": "^0.1.13",
     "request": "^2.88.2",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "typeorm": "^0.2.37"
   }
 }
