@@ -11,7 +11,7 @@
     "start": "node dist/lib/shared/http/server.js",
     "postbuild": "tsc -p tsconfig.build.json",
     "dev": "ts-node-dev --ignore-watch node_modules -r tsconfig-paths/register src/shared/http/server.ts",
-    "test": "jest",
+    "test": "cross-env NODE_ENV=test jest",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js --config ./src/shared/config/ormconfig.ts"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.31.0",
     "babel-plugin-module-resolver": "4.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",

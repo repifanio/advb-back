@@ -4,7 +4,7 @@ import swaggerConf from '@shared/config/swagger.json';
 import exceptionCapture from '@shared/http/middleware/exceptionCapture';
 import { createConnection } from 'typeorm';
 import config from '@shared/config/ormconfig';
-import routes from '@/shared/http/routes';
+import routes from '@shared/http/routes';
 import logger from '../config/logger';
 
 createConnection(config)
