@@ -6,6 +6,9 @@
   "repository": "https://github.com/repifanio/back_padrao.git",
   "author": "Rafael Epifanio",
   "license": "MIT",
+  "husky": {
+    "pre-commit": "yarn test"
+  },
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist/lib --copy-files --no-copy-ignored",
     "start": "node dist/lib/shared/http/server.js",
@@ -35,6 +38,7 @@
     "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.24.2",
+    "husky": "^7.0.2",
     "jest": "26.6.0",
     "ts-jest": "26.4.1",
     "ts-node-dev": "1.0.0",
