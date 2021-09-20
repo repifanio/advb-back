@@ -1,5 +1,7 @@
-node_modules
-dist
+.env
 yarn.lock
 .env.test
-.env
+node_modules
+dist
+
+
