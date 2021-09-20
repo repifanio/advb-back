@@ -1,14 +1,14 @@
 {
-  "name": "dxAuthenticator",
+  "name": "ProjectBase",
   "version": "1.0.0",
-  "description": "Autenticador da DX",
-  "main": "index.js",
+  "description": "Projeto backend padrão",
+  "main": "server.ts",
   "repository": "https://github.com/repifanio/back_padrao.git",
   "author": "Rafael Epifanio",
   "license": "MIT",
   "husky": {
     "hooks":{
-      "pre-commit": "yarn test"
+      "pre-commit": "echo teste"
     }
   },
   "scripts": {
