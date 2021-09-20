@@ -6,11 +6,6 @@
   "repository": "https://github.com/repifanio/back_padrao.git",
   "author": "Rafael Epifanio",
   "license": "MIT",
-  "husky": {
-    "hooks":{
-      "pre-commit": "echo 'teste'"
-    }
-  },
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist/lib --copy-files --no-copy-ignored",
     "start": "node dist/lib/shared/http/server.js",
@@ -18,6 +13,11 @@
     "dev": "ts-node-dev --ignore-watch node_modules -r tsconfig-paths/register src/shared/http/server.ts",
     "test": "cross-env NODE_ENV=test jest",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js --config ./src/shared/config/ormconfig.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test"
+    }
   },
   "devDependencies": {
     "@babel/cli": "7.12.1",
