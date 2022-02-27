@@ -25,7 +25,6 @@ routes.get('/:idCompany', async (req, res) => {
   res.status(200).json(companies);
 });
 
-
 routes.post('/', async (req, res) => {
   const insertCompany = new InsertCompany()
   const companyInserted = await insertCompany.run(req.body)
