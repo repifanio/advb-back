@@ -12,13 +12,13 @@ const config: ConnectionOptions = {
   username: process.env.DBUSER,
   password: process.env.DBPASSWORD,
   database: process.env.DBNAME,
-  entities: ['./{src,dist}/modules/**/entities/*{.ts,.js}'],
-  migrationsRun: false,
-  logging: true,
-  migrations: ['./src/shared/typeorm/migrations/*.ts'],
-  cli: {
-    migrationsDir: './src/shared/typeorm/migrations/',
-  },
+  // entities: ['./{src,dist}/modules/**/entities/*{.ts,.js}'],
+  // migrationsRun: false,
+  // logging: true,
+  // migrations: ['./src/shared/typeorm/migrations/*.ts'],
+  // cli: {
+  //   migrationsDir: './src/shared/typeorm/migrations/',
+  // },
 };
 
 export default config;
