@@ -2,6 +2,7 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerConf from '@shared/config/swagger.json';
 import exceptionCapture from '@shared/http/middleware/exceptionCapture';
+import cors from 'cors';
 import { createConnection } from 'typeorm';
 import config from '@shared/config/ormconfig';
 import routes from '@shared/http/routes';
@@ -16,6 +17,7 @@ createConnection(config)
 const app = express();
 app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerConf));
+app.use(cors());
 app.use(routes);
 app.use(exceptionCapture);
 

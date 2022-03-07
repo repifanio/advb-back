@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.17.2",
+    "@types/cors": "^2.8.12",
     "amazon-cognito-identity-js": "^5.1.0",
     "aws-sdk": "^2.987.0",
     "babel-node": "^0.0.1-security",
@@ -52,6 +53,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
