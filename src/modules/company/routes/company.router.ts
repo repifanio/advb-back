@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { Router } from 'express';
 import SearchAllCompanies from '@modules/company/services/searchAllCompanies.service';
+import SearchAllCompaniesToIndicate from '@modules/company/services/searchAllCompaniesToIndicate.service';
 import SearchUniqueCompanies from '@modules/company/services/searchUniqueCompanies.service';
 import InsertCompany from '@modules/company/services/insertCompany.service';
 import EditCompany from '@modules/company/services/editCompany.service';
@@ -14,6 +15,22 @@ routes.get('/', async (req, res) => {
   try {
     const searchAllCompanies = new SearchAllCompanies();
     const companies = await searchAllCompanies.run();
+
+    res.status(200).json(companies);
+  } catch (err: any) {
+    if (!err.statusCode) err.statusCode = 500;
+    res.status(400).json({ message: err.message });
+  }
+});
+
+routes.get('/companyIndication/:idSetor', async (req, res) => {
+  try {
+    const { idSetor } = req.params;
+
+    console.log('id setor', idSetor);
+
+    const searchAllCompaniesToIndicate = new SearchAllCompaniesToIndicate();
+    const companies = await searchAllCompaniesToIndicate.run(parseInt(idSetor, 10));
 
     res.status(200).json(companies);
   } catch (err: any) {
