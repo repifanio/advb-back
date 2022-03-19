@@ -14,7 +14,7 @@ const config: ConnectionOptions = {
   database: process.env.DBNAME,
   // entities: ['./{src,dist}/modules/**/entities/*{.ts,.js}'],
   // migrationsRun: false,
-  logging: true,
+  logging: false,
   // migrations: ['./src/shared/typeorm/migrations/*.ts'],
   // cli: {
   //   migrationsDir: './src/shared/typeorm/migrations/',
