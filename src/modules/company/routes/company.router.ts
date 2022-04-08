@@ -27,6 +27,8 @@ routes.get('/companyIndication/:idSetor', async (req, res) => {
   try {
     const { idSetor } = req.params;
 
+    console.log(req);
+
     const searchAllCompaniesToIndicate = new SearchAllCompaniesToIndicate();
     const companies = await searchAllCompaniesToIndicate.run(parseInt(idSetor, 10), req.user.userId);
 
