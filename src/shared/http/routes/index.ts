@@ -12,8 +12,8 @@ routes.get('/status', (req, res) => {
 });
 
 routes.use('/user', users);
-routes.use(authMid);
-routes.use('/company', company);
+// routes.use(authMid);
+routes.use('/company', authMid, company);
 routes.use('/indication', indication);
 routes.use('/sector', sector);
 routes.use('/user', users);
