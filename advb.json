@@ -3,7 +3,7 @@
     {
       "name": "advb-back",
       "script": "npm",
-      "args": "dev"
+      "args": "run dev"
     }
   ]
 }
