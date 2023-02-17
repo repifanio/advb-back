@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "advb-back",
+      "script": "npm",
+      "args": "dev"
+    }
+  ]
+}
