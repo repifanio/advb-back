@@ -8,8 +8,10 @@ import jwt from 'jsonwebtoken';
 class LoginService {
   public async run(login: iLogin):Promise<iUserLogged> {
     const query = await getManager().query(`
-      SELECT * from users u where u.email = ?
-    `, [login.email]);
+      SELECT * from users u where u.email = ? and u.is_active = ?
+    `, [login.email, true]);
+
+    console.log('tete')
 
     if (query.length < 1) throw new AppError('Usuário ou senha incorretos', 401);
 

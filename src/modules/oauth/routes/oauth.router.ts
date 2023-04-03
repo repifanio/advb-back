@@ -17,6 +17,9 @@ routes.post('/', async (req, res) => {
 });
 
 routes.post('/login', async (req, res) => {
+
+console.log('teste')
+
   try {
     const loginUser = new LoginUser();
     const login = await loginUser.run(req.body);
