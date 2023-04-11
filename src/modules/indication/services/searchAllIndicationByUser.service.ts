@@ -15,6 +15,7 @@ class SearchAllIndicationByUser {
       where c.company_id = i.company_id
         and s.sector_id = i.sector_id
         and i.user_id = ?
+        and i.year = 2023
     `, [idUser]);
 
     return query;
